@@ -8,9 +8,12 @@
 </head>
 <body>
     <form action="test1.php" method="post">
-        <input type="text" name="test_name">
-        <textarea name="contents" rows="8" cols="40">
-        </textarea>
+        名前:<input type="text" name="test_name"><br>
+        メール:<input type="text" name="test_mail"><br>
+        タイトル:<input type="text" name="test_title"><br>
+        本文:<textarea name="contents" rows="8" cols="40">
+        </textarea><br>
+        <input type="submit" name="test_toukou" value="投稿">
     </form>
 </body>
 </html>
