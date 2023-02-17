@@ -4,7 +4,7 @@ $test_mail = filter_input(INPUT_POST,'test_mail');
 $test_title = filter_input(INPUT_POST,'test_title');
 $test_toukou = filter_input(INPUT_POST,'test_toukou');
 
-var_dump($test_name,$test_mail,$test_title,$test_toukou);
+print('<p>名前:'.$test_name.'</p>');
 ?>
 <!DOCTYPE html>
 <html lang="ja">
