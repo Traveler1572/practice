@@ -1,11 +1,3 @@
-<?php
-$test_name = filter_input(INPUT_POST,'test_name');
-$test_mail = filter_input(INPUT_POST,'test_mail');
-$test_title = filter_input(INPUT_POST,'test_title');
-$test_toukou = filter_input(INPUT_POST,'test_toukou');
-
-print('<p>名前:'.$test_name.'</p>');
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -19,9 +11,20 @@ print('<p>名前:'.$test_name.'</p>');
         名前:<input type="text" name="test_name"><br>
         メール:<input type="text" name="test_mail"><br>
         タイトル:<input type="text" name="test_title"><br>
-        本文:<textarea name="contents" rows="8" cols="40">
+        本文:<textarea name="test_toukou" rows="8" cols="40">
         </textarea><br>
-        <input type="submit" name="test_toukou" value="投稿">
+        <input type="submit" name="contents" value="投稿">
     </form>
+    <?php
+    $test_name = filter_input(INPUT_POST,'test_name');
+    $test_mail = filter_input(INPUT_POST,'test_mail');
+    $test_title = filter_input(INPUT_POST,'test_title');
+    $test_toukou = filter_input(INPUT_POST,'test_toukou');
+
+    print('<p>名前:'.$test_name.'</p>');
+    print('<p>メール:'.$test_mail.'</p>');
+    print('<p>タイトル:'.$test_title.'</p>');
+    print('<p>本文:'.$test_toukou.'</p>');
+    ?>
 </body>
 </html>
