@@ -1,5 +1,4 @@
 <?php
-/*
 // データベースへの接続情報
 $host = 'localhost'; // MySQLが稼動しているサーバのアドレス
 $dbname = 'testbbs1'; // データベース名
@@ -24,18 +23,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $test_toukou = htmlspecialchars(filter_input(INPUT_POST,'test_toukou'), ENT_QUOTES, 'UTF-8');
 
     // データベースに格納する
-    $stmt = $dbh->prepare('INSERT INTO messages (test_name, test_mail, test_title, test_toukou) VALUES (:test_name, :test_mail, :test_title, :test_toukou)');
-    $stmt->bindParam(':test_name', $test_name, PDO::PARAM_STR);
-    $stmt->bindParam(':test_mail', $test_mail, PDO::PARAM_STR);
-    $stmt->bindParam(':test_title', $test_title, PDO::PARAM_STR);
-    $stmt->bindParam(':test_toukou', $test_toukou, PDO::PARAM_STR);
+    $stmt = $dbh->prepare('INSERT INTO messages (name, mail, title, comment) VALUES (:name, :mail, :title, :comment)');
+    $stmt->bindParam(':name', $test_name, PDO::PARAM_STR);
+    $stmt->bindParam(':mail', $test_mail, PDO::PARAM_STR);
+    $stmt->bindParam(':title', $test_title, PDO::PARAM_STR);
+    $stmt->bindParam(':comment', $test_toukou, PDO::PARAM_STR);
     $stmt->execute();
 }
 
 // データベースから投稿内容を取得する
 $stmt = $dbh->prepare('SELECT * FROM messages ORDER BY created_at DESC');
 $stmt->execute();
-$messages = $stmt->fetchAll(PDO::FETCH_ASSOC); */
+$messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
