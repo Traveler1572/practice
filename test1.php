@@ -55,23 +55,13 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <input type="submit" name="contents" value="投稿">
     </form>
     <hr>
-    <?php
-    #HTML側からPOST送信された入力データを各変数として受け取る
-    $test_name = filter_input(INPUT_POST,'test_name');
-    $test_mail = filter_input(INPUT_POST,'test_mail');
-    $test_title = filter_input(INPUT_POST,'test_title');
-    $test_toukou = filter_input(INPUT_POST,'test_toukou');
-    $test_toukou = nl2br($test_toukou);
-
-    #受け取ったデータを段落としてブラウザへ出力する
-    print('<p>名前:'.$test_name.'</p>');
-    print('<p>メール:'.$test_mail.'</p>');
-    print('<p>タイトル:'.$test_title.'</p>');
-    print('<p>本文:'.$test_toukou.'</p>');
-    print('<hr>');
-
-    #投稿内容一覧
-    
-    ?>
+    <!-- 投稿内容一覧 -->
+    <?php foreach ($messages as $message) : ?>
+        <p><?php echo $message['test_name']; ?> <?php echo $message['created_at']; ?></p>
+        <p><?php echo $message['test_mail']; ?>[</p>
+        <p><?php echo $message['test_title']; ?>[</p>
+        <p><?php echo $message['test_toukou']; ?>[</p>
+        <hr>
+    <?php endforeach; ?>
 </body>
 </html>
